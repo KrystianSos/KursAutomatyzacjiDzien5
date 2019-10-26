@@ -1,12 +1,12 @@
-import org.testng.annotations.Test;
 import Pages.FormPage;
+import org.testng.annotations.Test;
 
 import java.io.File;
 
 public class FormPoTest extends TestBase {
 
     @Test
-    public void newFormTest(){
+    public void newFormTest() {
         driver.get("http://seleniumui.tc-sii.com/form.php");
         FormPage formPage = new FormPage(driver);
         formPage.setFirstName("jan");
