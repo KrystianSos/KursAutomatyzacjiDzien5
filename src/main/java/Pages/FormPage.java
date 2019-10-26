@@ -54,58 +54,71 @@ public class FormPage {
     @FindBy(id = "validator-message")
     private WebElement validatorMessage;
 
-    public void assertValidatorMessage(String message) {
+    public FormPage assertValidatorMessage(String message) {
         Assert.assertEquals(validatorMessage.getText(), message);
+        return this;
     }
 
-    public void submit() {
+    public FormPage submit() {
         submit.click();
+        return this;
     }
 
-    public void addFile(String path) {
+    public FormPage addFile(String path) {
         addFile.sendKeys(path);
+        return this;
     }
 
-    public void setAddInfo(String info) {
+    public FormPage setAddInfo(String info) {
         addInfo.sendKeys(info);
+        return this;
     }
 
-    public void setCommands(int id) {
+    public FormPage setCommands(int id) {
         Select commandsSelect = new Select(commands);
         commandsSelect.selectByIndex(id);
+        return this;
     }
 
-    public void setContinents(int id) {
+    public FormPage setContinents(int id) {
         Select continentSelect = new Select(continents);
         continentSelect.selectByIndex(id);
+        return this;
     }
 
-    public void setFirstName(String name) {
+    public FormPage setFirstName(String name) {
         firstName.sendKeys(name);
+        return this;
     }
 
-    public void setLastName(String name) {
+    public FormPage setLastName(String name) {
         lastName.sendKeys(name);
+        return this;
     }
 
-    public void setSexRadioButtons(int id) {
+    public FormPage setSexRadioButtons(int id) {
         sexRadioButtons.get(id).click();
+        return this;
     }
 
-    public void setEmail(String email) {
+    public FormPage setEmail(String email) {
         this.email.sendKeys(email);
+        return this;
     }
 
-    public void setAge(String age) {
+    public FormPage setAge(String age) {
         this.age.sendKeys(age);
+        return this;
     }
 
-    public void setGridExperience(int id) {
+    public FormPage setGridExperience(int id) {
         this.gridExperience.get(id).click();
+        return this;
     }
 
-    public void setGridProfession(int id) {
+    public FormPage setGridProfession(int id) {
         this.gridProfession.get(id).click();
+        return this;
     }
 
 }
