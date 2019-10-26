@@ -1,3 +1,5 @@
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,9 +19,10 @@ public class AlertTests extends TestBase {
     */
     @Test
     public void simpleAlert() {
-
-    }
-
+        driver.findElement(By.id("simple-alert")).click();
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("simple-alert-label")).getText(), "OK button pressed");
+            }
     /*
     Test steps:
 
@@ -31,6 +34,10 @@ public class AlertTests extends TestBase {
     @Test
     public void promptAlert() {
 
+        driver.findElement(By.id("prompt-alert")).click();
+        driver.switchTo().alert().sendKeys("Lord Vader");
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("prompt-label")).getText(), "Hello Lord Vader! How are you today?");
     }
 
     /*
@@ -45,6 +52,14 @@ public class AlertTests extends TestBase {
     */
     @Test
     public void confirmAlert() {
+
+        driver.findElement(By.id("confirm-alert")).click();
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("confirm-label")).getText(), "You pressed OK!");
+        driver.findElement(By.id("confirm-alert")).click();
+        driver.switchTo().alert().dismiss();
+        Assert.assertEquals(driver.findElement(By.id("confirm-label")).getText(), "You pressed Cancel!");
+
 
     }
 }

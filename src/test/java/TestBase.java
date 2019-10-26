@@ -31,7 +31,7 @@ public class TestBase {
     // zamykanie przeglądarki i drivera po każdym teście
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
     }
 
     // metoda zwracająca losowy WebElement z listy
