@@ -29,7 +29,7 @@ public class IframesTest extends TestBase {
 
         driver.findElement(By.id("inputLogin")).sendKeys("marian123");
         driver.findElement(By.id("inputPassword")).sendKeys("123marian");
-        driver.findElement(By.id("inlineFormCustomSelectPref")).click();
+        //driver.findElement(By.id("inlineFormCustomSelectPref")).click();
 
         //Wybór z listy
         WebElement continentsElement =driver.findElement(By.id("inlineFormCustomSelectPref"));
