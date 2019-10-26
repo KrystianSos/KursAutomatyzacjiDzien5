@@ -35,13 +35,12 @@ public class TableTest extends TestBase {
         List<WebElement> allPeaks = driver.findElements(By.cssSelector("tbody tr"));
 
         List<TableRowPage> allRowsPos = new ArrayList<>();
-
         for(WebElement peakElement : allPeaks) {
             allRowsPos.add(new TableRowPage(peakElement));
         }
 
         for (TableRowPage row : allRowsPos) {
-            if(row.getName().contains("Switzerland") && row.getHeight() > 4000){
+            if(row.getState().contains("Switzerland") && row.getHeight() > 4000){
                 System.out.println(row.getName());
             }
         }

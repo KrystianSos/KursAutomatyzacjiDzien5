@@ -8,7 +8,7 @@ import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 
 public class TableRowPage {
 
-    public TableRowPage(WebDriver row) {
+    public TableRowPage(WebElement row) {
         PageFactory.initElements(new DefaultElementLocatorFactory(row), this);
     }
 
