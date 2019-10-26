@@ -32,7 +32,6 @@ public class DroppableTest extends TestBase {
         actions.dragAndDrop(driver.findElement(By.id("draggable")), driver.findElement(By.id("droppable")))
                 .perform();
 
-
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='droppable']/p")).getText(), "Dropped!");
 
     }
