@@ -8,20 +8,20 @@ public class FormPoTest extends TestBase {
     @Test
     public void newFormTest() {
         driver.get("http://seleniumui.tc-sii.com/form.php");
-        FormPage formPage = new FormPage(driver);
-        formPage.setFirstName("jan");
-        formPage.setLastName("kowalski");
-        formPage.setSexRadioButtons(1);
-        formPage.setAge("18");
-        formPage.setEmail("kowalski@kowalski.pl");
-        formPage.setGridExperience(1);
-        formPage.setGridProfession(0);
-        formPage.setContinents(2);
-        formPage.setCommands(1);
-        formPage.setAddInfo("Extra info");
         File file = new File("src\\main\\resources\\emptyFile.txt");
-        formPage.addFile(file.getAbsolutePath());
-        formPage.submit();
-        formPage.assertValidatorMessage("Form send with success");
+        FormPage formPage = new FormPage(driver);
+        formPage.setFirstName("jan")
+                .setLastName("kowalski")
+                .setSexRadioButtons(1)
+                .setAge("18")
+                .setEmail("kowalski@kowalski.pl")
+                .setGridExperience(1)
+                .setGridProfession(0)
+                .setContinents(2)
+                .setCommands(1)
+                .setAddInfo("Extra info")
+                .addFile(file.getAbsolutePath())
+                .submit()
+                .assertValidatorMessage("Form send with success");
     }
 }
