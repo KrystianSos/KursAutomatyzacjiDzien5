@@ -1,7 +1,9 @@
+import Pages.TableRowPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TableTest extends TestBase {
@@ -23,6 +25,24 @@ public class TableTest extends TestBase {
 
             if(state.contains("Switzerland") && height > 3000) {
                 System.out.println(row.findElement(By.cssSelector("td:nth-of-type(1)")).getText());
+            }
+        }
+    }
+
+    @Test
+    public void tableTestPO() {
+        driver.get("http://seleniumui.tc-sii.com/table.php");
+        List<WebElement> allPeaks = driver.findElements(By.cssSelector("tbody tr"));
+
+        List<TableRowPage> allRowsPos = new ArrayList<>();
+
+        for(WebElement peakElement : allPeaks) {
+            allRowsPos.add(new TableRowPage(peakElement));
+        }
+
+        for (TableRowPage row : allRowsPos) {
+            if(row.getName().contains("Switzerland") && row.getHeight() > 4000){
+                System.out.println(row.getName());
             }
         }
     }
