@@ -37,7 +37,8 @@ public class AlertTests extends TestBase {
         driver.findElement(By.id("prompt-alert")).click();
         driver.switchTo().alert().sendKeys("Lord Vader");
         driver.switchTo().alert().accept();
-        Assert.assertEquals(driver.findElement(By.id("prompt-label")).getText(), "Hello Lord Vader! How are you today?");
+        String assertMessage = driver.findElement(By.id("prompt-label")).getText();
+        Assert.assertEquals(assertMessage, "Hello Lord Vader! How are you today?");
     }
 
     /*
