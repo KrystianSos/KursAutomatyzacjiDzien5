@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
@@ -13,5 +14,32 @@ public class IframesTest extends TestBase {
     @Test
     public void iframeTest() {
         driver.get("http://seleniumui.tc-sii.com/iframes.php");
+
+        driver.switchTo().frame("iframe1");
+
+        driver.findElement(By.id("inputFirstName3")).sendKeys("Marian");
+        driver.findElement(By.id("inputSurname3")).sendKeys("Marianowski");
+
+        driver.switchTo().defaultContent();
+
+        driver.switchTo().frame("iframe2");
+
+        driver.findElement(By.id("inputLogin")).sendKeys("marian123");
+        driver.findElement(By.id("inputPassword")).sendKeys("123marian");
+        driver.findElement(By.id("inlineFormCustomSelectPref")).click();
+
+        //Wybór z listy
+        WebElement continentsElement =driver.findElement(By.id("inlineFormCustomSelectPref"));
+        Select continentSelect = new Select(continentsElement);
+        continentSelect.selectByValue("africa");
+
+        driver.findElement(By.id("gridRadios4")).click();
+
+        driver.switchTo().defaultContent();
+
+        driver.findElement(By.xpath("//div[@class=('container')]/ul/li/a")).click();
+
+
+
     }
 }
