@@ -15,13 +15,16 @@ public class IframesTest extends TestBase {
     public void iframeTest() {
         driver.get("http://seleniumui.tc-sii.com/iframes.php");
 
+        //przełącznik do frame
         driver.switchTo().frame("iframe1");
 
         driver.findElement(By.id("inputFirstName3")).sendKeys("Marian");
         driver.findElement(By.id("inputSurname3")).sendKeys("Marianowski");
 
+        //przełącznik do głównego okna
         driver.switchTo().defaultContent();
 
+        //przełącznik do frame
         driver.switchTo().frame("iframe2");
 
         driver.findElement(By.id("inputLogin")).sendKeys("marian123");
@@ -35,9 +38,11 @@ public class IframesTest extends TestBase {
 
         driver.findElement(By.id("gridRadios4")).click();
 
+        //przełącznik do głównego okna
         driver.switchTo().defaultContent();
 
         driver.findElement(By.xpath("//div[@class=('container')]/ul/li/a")).click();
+        //inny xpath(po tekscie): //a[contains(text(),'Basic')]
 
 
 
