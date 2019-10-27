@@ -1,4 +1,7 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -68,6 +71,11 @@ public class AlertTests extends TestBase {
     public void delayedAlert() {
 
         driver.findElement(By.id("delayed-alert")).click();
+
+        //wait
+        WebDriverWait wait = new WebDriverWait(driver,10);//10 sec max timeout
+        wait.until(ExpectedConditions.alertIsPresent());
+
         driver.switchTo().alert().accept();
         Assert.assertEquals(driver.findElement(By.id("delayed-alert-label")).getText(), "OK button pressed");
 
