@@ -63,4 +63,13 @@ public class AlertTests extends TestBase {
 
 
     }
+
+    @Test
+    public void delayedAlert() {
+
+        driver.findElement(By.id("delayed-alert")).click();
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("delayed-alert-label")).getText(), "OK button pressed");
+
+    }
 }
