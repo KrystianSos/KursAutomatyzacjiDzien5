@@ -69,11 +69,12 @@ public class AlertTests extends TestBase {
 
     @Test
     public void delayedAlert() {
+        WebDriverWait wait = new WebDriverWait(driver,10);//10 sec max timeout
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("delayed-alert")));
 
         driver.findElement(By.id("delayed-alert")).click();
 
         //wait
-        WebDriverWait wait = new WebDriverWait(driver,10);//10 sec max timeout
         wait.until(ExpectedConditions.alertIsPresent());
 
         driver.switchTo().alert().accept();
